@@ -53,7 +53,7 @@ const thoughtSchema = new Schema(
     },
     {
             toJSON: {
-                virutals: true,
+                virtuals: true,
                 getters: true,
             },
             id: false,
