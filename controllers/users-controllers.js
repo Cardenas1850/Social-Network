@@ -22,7 +22,7 @@ const userController = {
     getUserById({ params }, res) {
         User.findOne ({_id: params.id})
         .populate({ path: "thoughts", select: "-__v"})
-        .populate({ path: "friends", select: "-__V"})
+        .populate({ path: "friends", select: "-__v"})
         .select("-__v")
         .then((dbUserData) => {
             if (!dbUserData) {
@@ -53,7 +53,7 @@ const userController = {
     },
 
     deleteUser({params }, res ) {
-        User.findOneAndUpdate({ _id: params.id }, res)
+        User.findOneAndDelete({ _id: params.id }, res)
         .then((dbUserData) => {
             if (!dbUserData) {
                 res.staus(404).json({message: "No User found at this id"});
